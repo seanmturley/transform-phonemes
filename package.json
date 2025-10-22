@@ -4,7 +4,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "node --watch src/main.ts",
-    "test": "jest --watchAll"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll"
   },
   "devDependencies": {
     "@eslint/js": "^9.37.0",
