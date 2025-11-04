@@ -2,7 +2,8 @@
 // Consonants - https://en.wikipedia.org/wiki/English_phonology#Consonant_examples
 // Vowels - https://en.wikipedia.org/wiki/English_phonology#Vowels
 
-// import transliterateWord from "./word.ts";
+import map from "../lib/ipa-west-germanic.ts";
+import transliterateText from "./text.ts";
 import type { TransliterationTestData } from "./types.ts";
 
 const phonemes: TransliterationTestData = {
@@ -69,33 +70,29 @@ const phonemes: TransliterationTestData = {
   uː: { ipa: "guːs", transliteration: "guws", word: "goose" }
 };
 
-// describe("transliterateWord", () => {
-//   describe("should transliterate all phonemes", () => {
-//     for (const phoneme in phonemes) {
-//       const currentPhoneme = phonemes[phoneme];
-//       it(`${currentPhoneme.word}`, () => {
-//         const result = transliterateWord(
-//           currentPhoneme.word,
-//           currentPhoneme.pos ?? ""
-//         );
+describe("transliterateText", () => {
+  describe("should transliterate all phonemes", () => {
+    for (const [key, value] of Object.entries(phonemes)) {
+      it(`${key}`, () => {
+        const result = transliterateText(value.ipa, map);
 
-//         expect(result).toBe(currentPhoneme.ipa);
-//       });
-//     }
-//   });
+        expect(result).toBe(value.transliteration);
+      });
+    }
+  });
 
-//   it("should return punctuation unchanged", () => {
-//     // This tests a non-exhaustive list, but covers many common
-//     // symbols - in theory all punctuation is covered by the
-//     // Unicode punctuation character class
-//     const result = transliterateWord(`.,':;-?!«»‹›“”‘’"''()`, "M");
+  //   it("should return punctuation unchanged", () => {
+  //     // This tests a non-exhaustive list, but covers many common
+  //     // symbols - in theory all punctuation is covered by the
+  //     // Unicode punctuation character class
+  //     const result = transliterateWord(`.,':;-?!«»‹›“”‘’"''()`, "M");
 
-//     expect(result).toBe(`.,':;-?!«»‹›“”‘’"''()`);
-//   });
+  //     expect(result).toBe(`.,':;-?!«»‹›“”‘’"''()`);
+  //   });
 
-//   it("should return numerals unchanged", () => {
-//     const result = transliterateWord("0123456789", "Y");
+  //   it("should return numerals unchanged", () => {
+  //     const result = transliterateWord("0123456789", "Y");
 
-//     expect(result).toBe("0123456789");
-//   });
-// });
+  //     expect(result).toBe("0123456789");
+  //   });
+});

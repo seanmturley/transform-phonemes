@@ -1,3 +1,7 @@
+export type TransliterationMap = {
+  [key: string]: string;
+};
+
 type TransliterationTestDatum = {
   ipa: string;
   transliteration: string;
