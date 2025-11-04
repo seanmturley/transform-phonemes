@@ -1,38 +1,36 @@
 const map = {
+  // Phonemes not requiring transliteration are commented out
+
   ///////////////
   // CONSONANTS
+
+  // plosives
+  // p: "p",
+  // b: "b",
+  // t: "t",
+  // d: "d",
+  k: "c",
+  // g: "g",
+  tʃ: "č",
+  dʒ: "ǧ",
+
+  // fricatives
+  // f: "f",
+  // v: "v",
+  θ: "þ",
+  ð: "ð",
+  // s: "s",
+  // z: "z",
+  ʃ: "š",
+  ʒ: "ž",
+  x: "ȟ",
+  // ʍ: "w̌", // archaic
+  // h: "h",
 
   // nasals
   // m: "m",
   // n: "n",
   ŋ: "ň",
-
-  // plosives (fortis)
-  // p: "p",
-  // t: "t",
-  tʃ: "č",
-  k: "c",
-
-  // plosives (lenis)
-  // b: "b",
-  // d: "d",
-  dʒ: "ǧ",
-  // g: "g",
-
-  // fricatives (fortis)
-  // f: "f",
-  θ: "þ",
-  // s: "s",
-  ʃ: "š",
-  x: "ȟ",
-  ʍ: "w̌",
-  // h: "h",
-
-  // fricatives (lenis)
-  // v: "v",
-  ð: "ð",
-  // z: "z",
-  ʒ: "ž",
 
   // approximants
   // l: "l",
@@ -53,7 +51,7 @@ const map = {
   ʌ: "á",
   i: "ij",
 
-  // long
+  // long r-liaison
   ɪə: "ii",
   ɛː: "éé",
   ɔː: "oo",
@@ -68,9 +66,9 @@ const map = {
   aɪ: "aj",
 
   // w-diphthings
+  əʊ: "ow",
   aʊ: "aw",
-  uː: "uw",
-  əʊ: "ew"
+  uː: "uw"
 };
 
 export default map;

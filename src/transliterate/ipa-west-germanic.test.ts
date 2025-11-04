@@ -13,9 +13,10 @@ const phonemes: TransliterationTestData = {
   d: { ipa: "dɪn", transliteration: "din", word: "din" },
   k: { ipa: "kʌt", transliteration: "kát", word: "cut" },
   ɡ: { ipa: "gʌt", transliteration: "gát", word: "gut" },
-  // fricatives
   tʃ: { ipa: "tʃiːp", transliteration: "cíjp", word: "cheap" },
   dʒ: { ipa: "dʒiːp", transliteration: "dgijp", word: "jeep" },
+
+  // fricatives
   f: { ipa: "fæt", transliteration: "fat", word: "fat" },
   v: { ipa: "væt", transliteration: "vat", word: "vat" },
   θ: { ipa: "θaɪ", transliteration: "þaj", word: "thigh" },
@@ -25,17 +26,21 @@ const phonemes: TransliterationTestData = {
   ʃ: { ipa: "ʃɪn", transliteration: "shin", word: "shin" },
   ʒ: { ipa: "beɪʒ", transliteration: "béjzh", word: "beige" },
   x: { ipa: "lɒx", transliteration: "loch", word: "loch" },
+  // ʍ: { ipa: "ʍɒt", transliteration: "whot", word: "what" }, // archaic
   h: { ipa: "hæm", transliteration: "ham", word: "ham" },
+
   // nasals
   m: { ipa: "rʌm", transliteration: "rám", word: "rum" },
   n: { ipa: "rʌn", transliteration: "rán", word: "run" },
   ŋ: { ipa: "rʌŋ", transliteration: "ráng", word: "rung" },
+
   // approximants
   j: { ipa: "jɔːr", transliteration: "jor", word: "your" },
   w: { ipa: "wɔːr", transliteration: "wor", word: "wore" },
   r: { ipa: "rʌmp", transliteration: "rámp", word: "rump" },
   l: { ipa: "lʌmp", transliteration: "lámp", word: "lump" },
-  // short-lax vowels
+
+  // short vowels
   ɪ: { ipa: "kɪt", transliteration: "kit", word: "kit" },
   ɛ: { ipa: "drɛs", transliteration: "drés", word: "dress" },
   ɒ: { ipa: "lɒt", transliteration: "lot", word: "lot" },
@@ -43,6 +48,7 @@ const phonemes: TransliterationTestData = {
   ʊ: { ipa: "fʊt", transliteration: "fut", word: "foot" },
   ə: { ipa: "kɒmə", transliteration: "kome", word: "comma" },
   ʌ: { ipa: "strʌt", transliteration: "strát", word: "strut" },
+
   // long r-liaison vowels
   ɪə: { ipa: "nɪər", transliteration: "nir", word: "near" },
   eə: { ipa: "skweər", transliteration: "skwér", word: "square" },
@@ -50,12 +56,14 @@ const phonemes: TransliterationTestData = {
   ɑː: { ipa: "stɑːrt", transliteration: "start", word: "start" },
   ʊə: { ipa: "pjʊər", transliteration: "pjur", word: "pure" },
   ɜː: { ipa: "nɜːrs", transliteration: "neers", word: "nurse" },
-  // long j-diphthongs
+
+  // j-diphthongs
   iː: { ipa: "fliːs", transliteration: "flijs", word: "fleece" },
   eɪ: { ipa: "feɪs", transliteration: "féjs", word: "face" },
-  ʃɔɪ: { ipa: "tʃɔɪs", transliteration: "cojs", word: "choice" },
+  ɔɪ: { ipa: "tʃɔɪs", transliteration: "cojs", word: "choice" },
   aɪ: { ipa: "praɪs", transliteration: "prajs", word: "price" },
-  // long w-diphthongs
+
+  // w-diphthongs
   əʊ: { ipa: "gəʊt", transliteration: "gowt", word: "goat" },
   aʊ: { ipa: "maʊθ", transliteration: "mawþ", word: "mouth" },
   uː: { ipa: "guːs", transliteration: "guws", word: "goose" }
