@@ -3,6 +3,19 @@ import type { TransliterationMap } from "../transliterate/types.ts";
 const map: TransliterationMap = {
   // Phonemes not requiring transliteration are commented out
 
+  trigraphs: {
+    ///////////////
+    // VOWELS
+
+    // long r-liaison with -r
+    ɪər: "ir",
+    ɛːr: "ér",
+    ɔːr: "or",
+    ɑːr: "ar",
+    ʊər: "ur",
+    ɜːr: "eer"
+  },
+
   digraphs: {
     // Digraphs are prioritized to minimize transliteration conflicts
 
@@ -16,7 +29,16 @@ const map: TransliterationMap = {
     ///////////////
     // VOWELS
 
-    // long r-liaison
+    // short with -r
+    ɪr: "irr",
+    er: "érr",
+    ɒr: "orr",
+    ær: "arr",
+    ʊr: "urr",
+    // ər: "e", // Doesn't require special treatment
+    // ʌr: "á", // Doesn't require special treatment
+
+    // long r-liaison without -r
     ɪə: "ii",
     ɛː: "éé",
     ɔː: "oo",

@@ -5,6 +5,7 @@ type TransliterationMapGroup = {
 export type TransliterationMap = {
   digraphs?: TransliterationMapGroup;
   monographs: TransliterationMapGroup;
+  trigraphs?: TransliterationMapGroup;
 };
 
 type TransliterationTestDatum = {
