@@ -50,13 +50,30 @@ const phonemes: TransliterationTestData = {
   ə: { ipa: "kɒmə", transliteration: "kome", word: "comma" },
   ʌ: { ipa: "strʌt", transliteration: "strát", word: "strut" },
 
-  // long r-liaison vowels
-  ɪə: { ipa: "nɪər", transliteration: "nir", word: "near" },
-  eə: { ipa: "skweər", transliteration: "skwér", word: "square" },
-  ɔː: { ipa: "nɔːrθ", transliteration: "norþ", word: "north" },
-  ɑː: { ipa: "stɑːrt", transliteration: "start", word: "start" },
-  ʊə: { ipa: "pjʊər", transliteration: "pjur", word: "pure" },
-  ɜː: { ipa: "nɜːrs", transliteration: "neers", word: "nurse" },
+  // short vowels with -r
+  ɪr: { ipa: "spɪrɪt", transliteration: "spirrit", word: "spirit" },
+  ɛr: { ipa: "vɛri", transliteration: "vérrij", word: "very" },
+  ɒr: { ipa: "sɒri", transliteration: "sorrij", word: "sorry" },
+  ær: { ipa: "kæri", transliteration: "karrij", word: "carry" },
+  ʊr: { ipa: "kʊriər", transliteration: "currijer", word: "courier" },
+  ər: { ipa: "ʌðər", transliteration: "áðer", word: "other" },
+  ʌr: { ipa: "wʌri", transliteration: "wárij", word: "worry" },
+
+  // long r-liaison vowels with -r
+  ɪər: { ipa: "nɪər", transliteration: "nir", word: "near" },
+  eər: { ipa: "skweər", transliteration: "skwér", word: "square" },
+  ɔːr: { ipa: "nɔːrθ", transliteration: "norþ", word: "north" },
+  ɑːr: { ipa: "stɑːrt", transliteration: "start", word: "start" },
+  ʊər: { ipa: "pjʊər", transliteration: "pjur", word: "pure" },
+  ɜːr: { ipa: "nɜːrs", transliteration: "neers", word: "nurse" },
+
+  // long r-liaison vowels without -r
+  ɪə: { ipa: "aɪdɪə", transliteration: "ajdii", word: "idea" },
+  // eə: { ipa: "skweər", transliteration: "skwér", word: "square" },
+  ɔː: { ipa: "ɔːl", transliteration: "ool", word: "all" },
+  ɑː: { ipa: "ɑːftər", transliteration: "aafter", word: "after" },
+  // ʊə: { ipa: "pjʊər", transliteration: "pjur", word: "pure" },
+  ɜː: { ipa: "fɜːn", transliteration: "feen", word: "foehn" },
 
   // j-diphthongs
   iː: { ipa: "fliːs", transliteration: "flijs", word: "fleece" },
