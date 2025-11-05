@@ -1,5 +1,10 @@
-export type TransliterationMap = {
+type TransliterationMapGroup = {
   [key: string]: string;
+};
+
+export type TransliterationMap = {
+  digraphs?: TransliterationMapGroup;
+  monographs: TransliterationMapGroup;
 };
 
 type TransliterationTestDatum = {

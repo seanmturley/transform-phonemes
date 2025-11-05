@@ -1,74 +1,90 @@
-const map = {
+import type { TransliterationMap } from "../transliterate/types.ts";
+
+const map: TransliterationMap = {
   // Phonemes not requiring transliteration are commented out
 
-  ///////////////
-  // CONSONANTS
+  digraphs: {
+    // Digraphs are prioritized to minimize transliteration conflicts
 
-  // plosives
-  // p: "p",
-  // b: "b",
-  // t: "t",
-  // d: "d",
-  // k: "k",
-  // g: "g",
-  tʃ: "c",
-  dʒ: "dg",
+    ///////////////
+    // CONSONANTS
 
-  // fricatives
-  // f: "f",
-  // v: "v",
-  θ: "þ",
-  // ð: "ð",
-  // s: "s",
-  // z: "z",
-  ʃ: "sh",
-  ʒ: "zh",
-  x: "ch",
-  // ʍ: "wh", // archaic
-  // h: "h",
+    // plosives
+    tʃ: "c",
+    dʒ: "dg",
 
-  // nasals
-  // m: "m",
-  // n: "n",
-  ŋ: "ng",
+    ///////////////
+    // VOWELS
 
-  // approximants
-  // l: "l",
-  // r: "r",
-  // j: "j",
-  // w: "w",
+    // long r-liaison
+    ɪə: "ii",
+    ɛː: "éé",
+    ɔː: "oo",
+    ɑː: "aa",
+    ʊə: "uu",
+    ɜː: "ee",
 
-  ///////////////
-  // VOWELS
+    // j-diphthongs
+    iː: "ij",
+    eɪ: "éj",
+    ɔɪ: "oj",
+    aɪ: "aj",
 
-  // short
-  ɪ: "i",
-  e: "é",
-  ɒ: "o",
-  æ: "a",
-  ʊ: "u",
-  ə: "e",
-  ʌ: "á",
-  i: "ij",
+    // w-diphthings
+    əʊ: "ow",
+    aʊ: "aw",
+    uː: "uw"
+  },
 
-  // long r-liaison
-  ɪə: "ii",
-  ɛː: "éé",
-  ɔː: "oo",
-  ɑː: "aa",
-  ʊə: "uu",
-  ɜː: "ee",
+  monographs: {
+    ///////////////
+    // CONSONANTS
 
-  // j-diphthongs
-  iː: "ij",
-  eɪ: "éj",
-  ɔɪ: "oj",
-  aɪ: "aj",
+    // plosives
+    // p: "p",
+    // b: "b",
+    // t: "t",
+    // d: "d",
+    // k: "k",
+    // g: "g",
 
-  // w-diphthings
-  əʊ: "ow",
-  aʊ: "aw",
-  uː: "uw"
+    // fricatives
+    // f: "f",
+    // v: "v",
+    θ: "þ",
+    // ð: "ð",
+    // s: "s",
+    // z: "z",
+    ʃ: "sh",
+    ʒ: "zh",
+    x: "ch",
+    // ʍ: "wh", // archaic
+    // h: "h",
+
+    // nasals
+    // m: "m",
+    // n: "n",
+    ŋ: "ng",
+
+    // approximants
+    // l: "l",
+    // r: "r",
+    // j: "j",
+    // w: "w",
+
+    ///////////////
+    // VOWELS
+
+    // short
+    ɪ: "i",
+    e: "é",
+    ɒ: "o",
+    æ: "a",
+    ʊ: "u",
+    ə: "e",
+    ʌ: "á",
+    i: "ij"
+  }
 };
 
 export default map;

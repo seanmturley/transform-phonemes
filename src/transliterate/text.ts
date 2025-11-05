@@ -6,7 +6,13 @@ export default function transliterateText(
 ) {
   let transliteration = text;
 
-  for (const [key, value] of Object.entries(map)) {
+  if (map.digraphs) {
+    for (const [key, value] of Object.entries(map.digraphs)) {
+      transliteration = transliteration.replaceAll(key, value);
+    }
+  }
+
+  for (const [key, value] of Object.entries(map.monographs)) {
     transliteration = transliteration.replaceAll(key, value);
   }
 
