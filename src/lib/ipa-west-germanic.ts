@@ -99,7 +99,7 @@ const map: TransliterationMap = {
 
     // short
     ɪ: "i",
-    e: "é",
+    ɛ: "é",
     ɒ: "o",
     æ: "a",
     ʊ: "u",
