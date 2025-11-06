@@ -6,6 +6,10 @@ export default function transliterateText(
 ) {
   let transliteration = text;
 
+  const transliterate = (source: string, target: string) => {
+    transliteration = transliteration.replaceAll(source, target);
+  };
+
   const placeholderMap: TransliterationMapGroup = {};
 
   // Start placeholders from the first value in Unicode
@@ -13,45 +17,34 @@ export default function transliterateText(
   let currentPlaceholderInt = parseInt("100000", 16);
   let currentPlaceholderChar = `\\u{${currentPlaceholderInt.toString(16)}}`;
 
+  const storeThenIncrementPlaceholder = (target: string) => {
+    placeholderMap[currentPlaceholderChar] = target;
+
+    currentPlaceholderInt++;
+    currentPlaceholderChar = `\\u{${currentPlaceholderInt.toString(16)}}`;
+  };
+
   if (map.trigraphs) {
     for (const [source, target] of Object.entries(map.trigraphs)) {
-      transliteration = transliteration.replaceAll(
-        source,
-        currentPlaceholderChar
-      );
-
-      placeholderMap[currentPlaceholderChar] = target;
-      currentPlaceholderInt++;
-      currentPlaceholderChar = `\\u{${currentPlaceholderInt.toString(16)}}`;
+      transliterate(source, currentPlaceholderChar);
+      storeThenIncrementPlaceholder(target);
     }
   }
 
   if (map.digraphs) {
     for (const [source, target] of Object.entries(map.digraphs)) {
-      transliteration = transliteration.replaceAll(
-        source,
-        currentPlaceholderChar
-      );
-
-      placeholderMap[currentPlaceholderChar] = target;
-      currentPlaceholderInt++;
-      currentPlaceholderChar = `\\u{${currentPlaceholderInt.toString(16)}}`;
+      transliterate(source, currentPlaceholderChar);
+      storeThenIncrementPlaceholder(target);
     }
   }
 
   for (const [source, target] of Object.entries(map.monographs)) {
-    transliteration = transliteration.replaceAll(
-      source,
-      currentPlaceholderChar
-    );
-
-    placeholderMap[currentPlaceholderChar] = target;
-    currentPlaceholderInt++;
-    currentPlaceholderChar = `\\u{${currentPlaceholderInt.toString(16)}}`;
+    transliterate(source, currentPlaceholderChar);
+    storeThenIncrementPlaceholder(target);
   }
 
   for (const [placeholderChar, target] of Object.entries(placeholderMap)) {
-    transliteration = transliteration.replaceAll(placeholderChar, target);
+    transliterate(placeholderChar, target);
   }
 
   return transliteration;
