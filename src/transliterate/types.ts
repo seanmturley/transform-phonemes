@@ -1,4 +1,4 @@
-type TransliterationMapGroup = {
+export type TransliterationMapGroup = {
   [key: string]: string;
 };
 
