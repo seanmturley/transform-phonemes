@@ -31,7 +31,7 @@ const map: TransliterationMap = {
 
     // short with -r
     ɪr: "irr",
-    er: "érr",
+    ɛr: "érr",
     ɒr: "orr",
     ær: "arr",
     ʊr: "urr",

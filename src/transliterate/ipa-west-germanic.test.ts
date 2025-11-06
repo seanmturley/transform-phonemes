@@ -55,7 +55,7 @@ const phonemes: TransliterationTestData = {
   ɛr: { ipa: "vɛri", transliteration: "vérrij", word: "very" },
   ɒr: { ipa: "sɒri", transliteration: "sorrij", word: "sorry" },
   ær: { ipa: "kæri", transliteration: "karrij", word: "carry" },
-  ʊr: { ipa: "kʊriər", transliteration: "currijer", word: "courier" },
+  ʊr: { ipa: "kʊriər", transliteration: "kurrijer", word: "courier" },
   ər: { ipa: "ʌðər", transliteration: "áðer", word: "other" },
   ʌr: { ipa: "wʌri", transliteration: "wárij", word: "worry" },
 
