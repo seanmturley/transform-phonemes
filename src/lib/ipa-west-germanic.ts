@@ -9,7 +9,7 @@ const map: TransliterationMap = {
 
     // long r-liaison with -r
     ɪər: "ir",
-    ɛːr: "ér",
+    eər: "ér",
     ɔːr: "or",
     ɑːr: "ar",
     ʊər: "ur",
@@ -40,7 +40,7 @@ const map: TransliterationMap = {
 
     // long r-liaison without -r
     ɪə: "ii",
-    ɛː: "éé",
+    eə: "éé",
     ɔː: "oo",
     ɑː: "aa",
     ʊə: "uu",
