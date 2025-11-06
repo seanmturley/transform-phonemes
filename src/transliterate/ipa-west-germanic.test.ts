@@ -14,7 +14,7 @@ const phonemes: TransliterationTestData = {
   d: { ipa: "dɪn", transliteration: "din", word: "din" },
   k: { ipa: "kʌt", transliteration: "kát", word: "cut" },
   ɡ: { ipa: "gʌt", transliteration: "gát", word: "gut" },
-  tʃ: { ipa: "tʃiːp", transliteration: "cíjp", word: "cheap" },
+  tʃ: { ipa: "tʃiːp", transliteration: "cijp", word: "cheap" },
   dʒ: { ipa: "dʒiːp", transliteration: "dgijp", word: "jeep" },
 
   // fricatives
