@@ -6,6 +6,10 @@ export default function transliterateText(
 ) {
   let transliteration = text;
 
+  const capitalizeFirstLetter = (string: string) => {
+    return String(string).charAt(0).toUpperCase() + String(string).slice(1);
+  };
+
   const transliterate = (source: string, target: string) => {
     transliteration = transliteration.replaceAll(source, target);
   };
@@ -28,6 +32,9 @@ export default function transliterateText(
     for (const [source, target] of Object.entries(map.trigraphs)) {
       transliterate(source, currentPlaceholderChar);
       storeThenIncrementPlaceholder(target);
+
+      transliterate(capitalizeFirstLetter(source), currentPlaceholderChar);
+      storeThenIncrementPlaceholder(capitalizeFirstLetter(target));
     }
   }
 
@@ -35,12 +42,18 @@ export default function transliterateText(
     for (const [source, target] of Object.entries(map.digraphs)) {
       transliterate(source, currentPlaceholderChar);
       storeThenIncrementPlaceholder(target);
+
+      transliterate(capitalizeFirstLetter(source), currentPlaceholderChar);
+      storeThenIncrementPlaceholder(capitalizeFirstLetter(target));
     }
   }
 
   for (const [source, target] of Object.entries(map.monographs)) {
     transliterate(source, currentPlaceholderChar);
     storeThenIncrementPlaceholder(target);
+
+    transliterate(capitalizeFirstLetter(source), currentPlaceholderChar);
+    storeThenIncrementPlaceholder(capitalizeFirstLetter(target));
   }
 
   for (const [placeholderChar, target] of Object.entries(placeholderMap)) {
