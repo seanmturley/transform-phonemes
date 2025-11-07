@@ -11,7 +11,17 @@ export default function transliterateText(
   };
 
   const transliterate = (source: string, target: string) => {
-    transliteration = transliteration.replaceAll(source, target);
+    transliteration = transliteration.replaceAll(
+      source,
+      currentPlaceholderChar
+    );
+    storeThenIncrementPlaceholder(target);
+
+    transliteration = transliteration.replaceAll(
+      capitalizeFirstLetter(source),
+      currentPlaceholderChar
+    );
+    storeThenIncrementPlaceholder(capitalizeFirstLetter(target));
   };
 
   const placeholderMap: TransliterationMapGroup = {};
@@ -29,35 +39,23 @@ export default function transliterateText(
   };
 
   if (map.trigraphs) {
-    for (const [source, target] of Object.entries(map.trigraphs)) {
-      transliterate(source, currentPlaceholderChar);
-      storeThenIncrementPlaceholder(target);
-
-      transliterate(capitalizeFirstLetter(source), currentPlaceholderChar);
-      storeThenIncrementPlaceholder(capitalizeFirstLetter(target));
-    }
+    Object.entries(map.trigraphs).forEach(([source, target]) => {
+      transliterate(source, target);
+    });
   }
 
   if (map.digraphs) {
-    for (const [source, target] of Object.entries(map.digraphs)) {
-      transliterate(source, currentPlaceholderChar);
-      storeThenIncrementPlaceholder(target);
-
-      transliterate(capitalizeFirstLetter(source), currentPlaceholderChar);
-      storeThenIncrementPlaceholder(capitalizeFirstLetter(target));
-    }
+    Object.entries(map.digraphs).forEach(([source, target]) => {
+      transliterate(source, target);
+    });
   }
 
-  for (const [source, target] of Object.entries(map.monographs)) {
-    transliterate(source, currentPlaceholderChar);
-    storeThenIncrementPlaceholder(target);
-
-    transliterate(capitalizeFirstLetter(source), currentPlaceholderChar);
-    storeThenIncrementPlaceholder(capitalizeFirstLetter(target));
-  }
+  Object.entries(map.monographs).forEach(([source, target]) => {
+    transliterate(source, target);
+  });
 
   for (const [placeholderChar, target] of Object.entries(placeholderMap)) {
-    transliterate(placeholderChar, target);
+    transliteration = transliteration.replaceAll(placeholderChar, target);
   }
 
   return transliteration;
