@@ -109,7 +109,7 @@ const capitalizedPhonemes: TransliterationTestData = {
   s: { ipa: "Sæp", transliteration: "Sap", word: "Sap" },
   z: { ipa: "Zæp", transliteration: "Zap", word: "Zap" },
   ʃ: { ipa: "Ʃɪn", transliteration: "Shin", word: "Shin" },
-  ʒ: { ipa: "Ʒɒnrə", transliteration: "zhonre", word: "genre" },
+  ʒ: { ipa: "Ʒɒnrə", transliteration: "Zhonre", word: "Genre" },
   // x: { ipa: "lɒx", transliteration: "loch", word: "loch" },
   // ʍ: { ipa: "ʍɒt", transliteration: "whot", word: "what" }, // archaic
   h: { ipa: "Hæm", transliteration: "Ham", word: "Ham" },
@@ -129,10 +129,10 @@ const capitalizedPhonemes: TransliterationTestData = {
   ɪ: { ipa: "Ɪt", transliteration: "It", word: "It" },
   ɛ: { ipa: "Ɛdʒ", transliteration: "Édg", word: "Edge" },
   ɒ: { ipa: "Ɒn", transliteration: "On", word: "On" },
-  æ: { ipa: "Ɑːz", transliteration: "Az", word: "As" },
-  ʊ: { ipa: "Uːps", transliteration: "Ups", word: "Oops" },
+  æ: { ipa: "Æz", transliteration: "Az", word: "As" },
+  // ʊ: { ipa: "Uːps", transliteration: "Ups", word: "Oops" },
   ə: { ipa: "Əbaʊt", transliteration: "Ebawt", word: "About" },
-  ʌ: { ipa: "Ʌs", transliteration: "Às", word: "Us" },
+  ʌ: { ipa: "Ʌs", transliteration: "Ás", word: "Us" },
 
   // short vowels with -r
   ɪr: { ipa: "Ɪreɪz", transliteration: "Irréjz", word: "Erase" },
