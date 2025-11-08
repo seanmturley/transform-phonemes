@@ -172,38 +172,50 @@ const capitalizedPhonemes: TransliterationTestData = {
 };
 
 describe("transliterateText", () => {
-  describe("should transliterate all phonemes", () => {
-    for (const [key, value] of Object.entries(phonemes)) {
-      it(`${key}`, () => {
-        const result = transliterateText(value.ipa, map);
+  describe("generally should", () => {
+    describe("transliterate all phonemes", () => {
+      for (const [key, value] of Object.entries(phonemes)) {
+        it(`${key}`, () => {
+          const result = transliterateText(value.ipa, map);
 
-        expect(result).toBe(value.transliteration);
-      });
-    }
+          expect(result).toBe(value.transliteration);
+        });
+      }
+    });
+
+    describe("transliterate all capitalized phonemes", () => {
+      for (const [key, value] of Object.entries(capitalizedPhonemes)) {
+        it(`${key}`, () => {
+          const result = transliterateText(value.ipa, map);
+
+          expect(result).toBe(value.transliteration);
+        });
+      }
+    });
+
+    //   it("return punctuation unchanged", () => {
+    //     // This tests a non-exhaustive list, but covers many common
+    //     // symbols - in theory all punctuation is covered by the
+    //     // Unicode punctuation character class
+    //     const result = transliterateWord(`.,':;-?!«»‹›“”‘’"''()`, "M");
+
+    //     expect(result).toBe(`.,':;-?!«»‹›“”‘’"''()`);
+    //   });
+
+    //   it("return numerals unchanged", () => {
+    //     const result = transliterateWord("0123456789", "Y");
+
+    //     expect(result).toBe("0123456789");
+    //   });
   });
 
-  describe("should transliterate all capitalized phonemes", () => {
-    for (const [key, value] of Object.entries(capitalizedPhonemes)) {
-      it(`${key}`, () => {
-        const result = transliterateText(value.ipa, map);
+  describe("exceptionally (based on a list of exceptions) should", () => {
+    describe("transliterate 't' & 'ʃ' as separate consonants", () => {
+      const word = "swɛtʃɜːrt"; // sweatshirt
 
-        expect(result).toBe(value.transliteration);
-      });
-    }
+      const result = transliterateText(word, map);
+
+      expect(result).toBe("swétsheert");
+    });
   });
-
-  //   it("should return punctuation unchanged", () => {
-  //     // This tests a non-exhaustive list, but covers many common
-  //     // symbols - in theory all punctuation is covered by the
-  //     // Unicode punctuation character class
-  //     const result = transliterateWord(`.,':;-?!«»‹›“”‘’"''()`, "M");
-
-  //     expect(result).toBe(`.,':;-?!«»‹›“”‘’"''()`);
-  //   });
-
-  //   it("should return numerals unchanged", () => {
-  //     const result = transliterateWord("0123456789", "Y");
-
-  //     expect(result).toBe("0123456789");
-  //   });
 });
