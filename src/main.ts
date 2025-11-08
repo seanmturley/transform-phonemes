@@ -1,4 +1,4 @@
-import map from "./lib/ipa-west-germanic.ts";
+import map from "./lib/ipa-west-germanic/map.ts";
 import transliterateText from "./transliterate/text.ts";
 
 const phonemicPangram =

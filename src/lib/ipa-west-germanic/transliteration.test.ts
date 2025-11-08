@@ -2,9 +2,9 @@
 // Consonants - https://en.wikipedia.org/wiki/English_phonology#Consonant_examples
 // Vowels - https://en.wikipedia.org/wiki/English_phonology#Vowels
 
-import map from "../lib/ipa-west-germanic.ts";
-import transliterateText from "./text.ts";
-import type { TransliterationTestData } from "./types.ts";
+import map from "./map.ts";
+import transliterateText from "../../transliterate/text.ts";
+import type { TransliterationTestData } from "../../transliterate/types.ts";
 
 const phonemes: TransliterationTestData = {
   // plosives
@@ -212,9 +212,7 @@ describe("transliterateText", () => {
   describe("exceptionally (based on a list of exceptions) should", () => {
     describe("transliterate 't' & 'ʃ' as separate consonants", () => {
       const word = "swɛtʃɜːrt"; // sweatshirt
-
       const result = transliterateText(word, map);
-
       expect(result).toBe("swétsheert");
     });
   });

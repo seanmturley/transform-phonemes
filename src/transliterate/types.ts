@@ -3,9 +3,10 @@ export type TransliterationMapGroup = {
 };
 
 export type TransliterationMap = {
+  exceptions?: TransliterationMapGroup;
   digraphs?: TransliterationMapGroup;
-  monographs: TransliterationMapGroup;
   trigraphs?: TransliterationMapGroup;
+  monographs: TransliterationMapGroup;
 };
 
 type TransliterationTestDatum = {

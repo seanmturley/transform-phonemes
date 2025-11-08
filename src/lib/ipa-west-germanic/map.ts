@@ -1,7 +1,12 @@
-import type { TransliterationMap } from "../transliterate/types.ts";
+import type { TransliterationMap } from "../../transliterate/types.ts";
+import ipaDigraphExceptions from "./ipa-digraph-exceptions.ts";
 
 const map: TransliterationMap = {
   // Phonemes not requiring transliteration are commented out
+
+  exceptions: {
+    ...ipaDigraphExceptions
+  },
 
   trigraphs: {
     ///////////////
