@@ -193,24 +193,24 @@ describe("transliterateText", () => {
       }
     });
 
-    //   it("return punctuation unchanged", () => {
-    //     // This tests a non-exhaustive list, but covers many common
-    //     // symbols - in theory all punctuation is covered by the
-    //     // Unicode punctuation character class
-    //     const result = transliterateWord(`.,':;-?!«»‹›“”‘’"''()`, "M");
+    //   //   it("return punctuation unchanged", () => {
+    //   //     // This tests a non-exhaustive list, but covers many common
+    //   //     // symbols - in theory all punctuation is covered by the
+    //   //     // Unicode punctuation character class
+    //   //     const result = transliterateWord(`.,':;-?!«»‹›“”‘’"''()`, "M");
 
-    //     expect(result).toBe(`.,':;-?!«»‹›“”‘’"''()`);
-    //   });
+    //   //     expect(result).toBe(`.,':;-?!«»‹›“”‘’"''()`);
+    //   //   });
 
-    //   it("return numerals unchanged", () => {
-    //     const result = transliterateWord("0123456789", "Y");
+    //   //   it("return numerals unchanged", () => {
+    //   //     const result = transliterateWord("0123456789", "Y");
 
-    //     expect(result).toBe("0123456789");
-    //   });
+    //   //     expect(result).toBe("0123456789");
+    //   //   });
   });
 
   describe("exceptionally (based on a list of exceptions) should", () => {
-    describe("transliterate 't' & 'ʃ' as separate consonants", () => {
+    it("transliterate 't' & 'ʃ' as separate consonants", () => {
       const word = "swɛtʃɜːrt"; // sweatshirt
       const result = transliterateText(word, map);
       expect(result).toBe("swétsheert");
