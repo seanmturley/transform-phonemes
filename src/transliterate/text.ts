@@ -38,23 +38,24 @@ export default function transliterateText(
     currentPlaceholderChar = `\\u{${currentPlaceholderInt.toString(16)}}`;
   };
 
-  if (map.trigraphs) {
-    Object.entries(map.trigraphs).forEach(([source, target]) => {
+  // TypeScript requires some awkward and verbose definitions here
+  type Entries<T> = {
+    [K in keyof T]-?: [K, T[K]];
+  }[keyof T][];
+
+  const objectEntries = <T extends object>(obj: T) =>
+    Object.entries(obj) as Entries<T>;
+
+  let group: keyof TransliterationMap;
+  for (group in map) {
+    const mapGroup = map[group] as TransliterationMapGroup;
+
+    for (const [source, target] of objectEntries(mapGroup)) {
       transliterate(source, target);
-    });
+    }
   }
 
-  if (map.digraphs) {
-    Object.entries(map.digraphs).forEach(([source, target]) => {
-      transliterate(source, target);
-    });
-  }
-
-  Object.entries(map.monographs).forEach(([source, target]) => {
-    transliterate(source, target);
-  });
-
-  for (const [placeholderChar, target] of Object.entries(placeholderMap)) {
+  for (const [placeholderChar, target] of objectEntries(placeholderMap)) {
     transliteration = transliteration.replaceAll(placeholderChar, target);
   }
 
