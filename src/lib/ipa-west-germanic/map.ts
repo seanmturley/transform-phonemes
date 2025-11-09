@@ -2,10 +2,20 @@ import type { TransliterationMap } from "../../transliterate/types.ts";
 import ipaDigraphExceptions from "./ipa-digraph-exceptions.ts";
 
 const map: TransliterationMap = {
+  // Groups of phonemes are presented in decreasing order of prioritization
+
   // Phonemes not requiring transliteration are commented out
 
   exceptions: {
-    ...ipaDigraphExceptions
+    ...ipaDigraphExceptions,
+
+    // Ambigious West Germanc digraph pairs
+    // Hyphenation to disambiguate from digraphs
+    dg: "d-g",
+    sh: "s-h",
+    zh: "z-h",
+    tʃh: "c-h",
+    ng: "n-g"
   },
 
   trigraphs: {
@@ -22,8 +32,6 @@ const map: TransliterationMap = {
   },
 
   digraphs: {
-    // Digraphs are prioritized to minimize transliteration conflicts
-
     ///////////////
     // CONSONANTS
 
