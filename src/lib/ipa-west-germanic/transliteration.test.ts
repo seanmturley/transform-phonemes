@@ -171,6 +171,14 @@ const capitalizedPhonemes: TransliterationTestData = {
   uː: { ipa: "Uːz", transliteration: "Uwz", word: "Ooze" }
 };
 
+const westGermanicConsonantDigraphs: TransliterationTestData = {
+  dg: { ipa: "mʌdgɑːrd", transliteration: "mád-gard", word: "mudgaurd" },
+  sh: { ipa: "haʊshəʊld", transliteration: "haws-howld", word: "household" },
+  zh: { ipa: "ræmzhɔːrn", transliteration: "ramz-horn", word: "ramshorn" },
+  tʃh: { ipa: "hɪtʃhaɪkər", transliteration: "hic-hajker", word: "hitchhiker" },
+  ng: { ipa: "ɒngəʊɪŋ", transliteration: "on-gowing", word: "ongoing" }
+};
+
 describe("transliterateText", () => {
   describe("generally should", () => {
     describe("transliterate all phonemes", () => {
@@ -215,5 +223,15 @@ describe("transliterateText", () => {
       const result = transliterateText(word, map);
       expect(result).toBe("swétsheert");
     });
+  });
+
+  describe("should hyphenate ambiguous West Germanic consonant pairs", () => {
+    for (const [key, value] of Object.entries(westGermanicConsonantDigraphs)) {
+      it(`${key}`, () => {
+        const result = transliterateText(value.ipa, map);
+
+        expect(result).toBe(value.transliteration);
+      });
+    }
   });
 });
