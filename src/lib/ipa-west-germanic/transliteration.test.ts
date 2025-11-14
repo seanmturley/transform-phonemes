@@ -239,7 +239,7 @@ describe("transliterateText", () => {
     it("of", () => {
       const example = "Əv prəvaɪdərz əv"; // Of providers of
       const result = transliterateText(example, map);
-      expect(result).toBe("Ov prevajders ov");
+      expect(result).toBe("Ov prevajderz ov");
     });
   });
 });
