@@ -124,7 +124,9 @@ const map: TransliterationMap = {
   },
   post: {
     "\\bev\\b": "ov",
-    "\\bEv\\b": "Ov"
+    "\\bEv\\b": "Ov",
+    "\\bend\\b": "and",
+    "\\bEnd\\b": "And"
   }
 };
 
