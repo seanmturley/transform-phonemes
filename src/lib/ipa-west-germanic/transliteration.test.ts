@@ -241,5 +241,11 @@ describe("transliterateText", () => {
       const result = transliterateText(example, map);
       expect(result).toBe("Ov prevajderz ov");
     });
+
+    it("and", () => {
+      const example = "Ənd kəndɪʃənz ənd"; // And conditions and
+      const result = transliterateText(example, map);
+      expect(result).toBe("And kendishenz and");
+    });
   });
 });
