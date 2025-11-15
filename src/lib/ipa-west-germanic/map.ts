@@ -1,8 +1,8 @@
-import type { TransliterationMap } from "../../transliterate/types.ts";
 import ipaDigraphExceptions from "./ipa-digraph-exceptions.ts";
+import type { TransliterationMap } from "../../transliterate/types.ts";
+import { vowelOrEndOfClause, wordEnd, wordStart } from "../../utils/regex.ts";
 
-const wordStart = "(?<=\\P{L}|^)";
-const wordEnd = "(?=\\P{L}|$)";
+const vowels = "AÁEÉIOUaáeéiou";
 
 const map: TransliterationMap = {
   pre: {
@@ -129,7 +129,9 @@ const map: TransliterationMap = {
     [`${wordStart}ev${wordEnd}`]: "ov",
     [`${wordStart}Ev${wordEnd}`]: "Ov",
     [`${wordStart}end${wordEnd}`]: "and",
-    [`${wordStart}End${wordEnd}`]: "And"
+    [`${wordStart}End${wordEnd}`]: "And",
+    [`${wordStart}ðe${vowelOrEndOfClause(vowels)}`]: "ðij",
+    [`${wordStart}Ðe${vowelOrEndOfClause(vowels)}`]: "Ðij"
   }
 };
 
