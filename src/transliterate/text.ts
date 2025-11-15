@@ -65,10 +65,11 @@ export default function transliterateText(
 
   if (map.post) {
     for (const [pattern, target] of objectEntries(map.post)) {
-      const regex = new RegExp(pattern, "g");
+      const regex = new RegExp(pattern, "gu");
 
       transliteration = transliteration.replaceAll(regex, target);
     }
   }
+
   return transliteration;
 }

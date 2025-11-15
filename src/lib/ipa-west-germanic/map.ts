@@ -1,6 +1,9 @@
 import type { TransliterationMap } from "../../transliterate/types.ts";
 import ipaDigraphExceptions from "./ipa-digraph-exceptions.ts";
 
+const wordStart = "(?<=\\P{L}|^)";
+const wordEnd = "(?=\\P{L}|$)";
+
 const map: TransliterationMap = {
   pre: {
     // Groups of phonemes are presented in decreasing order of prioritization
@@ -123,10 +126,10 @@ const map: TransliterationMap = {
     }
   },
   post: {
-    "\\bev\\b": "ov",
-    "\\bEv\\b": "Ov",
-    "\\bend\\b": "and",
-    "\\bEnd\\b": "And"
+    [`${wordStart}ev${wordEnd}`]: "ov",
+    [`${wordStart}Ev${wordEnd}`]: "Ov",
+    [`${wordStart}end${wordEnd}`]: "and",
+    [`${wordStart}End${wordEnd}`]: "And"
   }
 };
 
