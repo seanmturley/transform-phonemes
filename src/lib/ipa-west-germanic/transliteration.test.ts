@@ -251,17 +251,17 @@ describe("transliterateText", () => {
 
   describe("should, when not followed by a consonant, render stressed forms of the words", () => {
     it("the", () => {
-      const example = "Ðə ʌgli ənd ðə ænɪməl, ðə bjuːti ənd ðə biːst";
+      const example = "Ðə ʌgli ənd ðə ænɪməl, Ðə bjuːti ənd ðə biːst";
       // The ugly and the animal, the beauty and the beast
       const result = transliterateText(example, map);
-      expect(result).toBe("Ðij áglij and ðij animel, ðe bjuwtij and ðe bijst");
+      expect(result).toBe("Ðij áglij and ðij animel, Ðe bjuwtij and ðe bijst");
     });
 
     it("to", () => {
-      const example = "Tə ɑːsk ənd tə ɑːnsər, tə siːk ənd tə faɪnd";
+      const example = "Tə ɑːsk ənd tə ɑːnsər, Tə siːk ənd tə faɪnd";
       // To ask and to answer, to seek and to find
       const result = transliterateText(example, map);
-      expect(result).toBe("Tuw aask and tuw aanser, te sijk and te fajnd");
+      expect(result).toBe("Tuw aask and tuw aanser, Te sijk and te fajnd");
     });
 
     // it("into", () => {
