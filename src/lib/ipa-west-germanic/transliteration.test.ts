@@ -257,11 +257,12 @@ describe("transliterateText", () => {
       expect(result).toBe("Ðij áglij and ðij animel, ðe bjuwtij and ðe bijst");
     });
 
-    // it("to", () => {
-    //   const example = "Ənd kəndɪʃənz ənd"; // And conditions and
-    //   const result = transliterateText(example, map);
-    //   expect(result).toBe("And kendishenz and");
-    // });
+    it("to", () => {
+      const example = "Tə ɑːsk ənd tə ɑːnsər, tə siːk ənd tə faɪnd";
+      // To ask and to answer, to seek and to find
+      const result = transliterateText(example, map);
+      expect(result).toBe("Tuw aask and tuw aanser, te sijk and te fajnd");
+    });
 
     // it("into", () => {
     //   const example = "Ənd kəndɪʃənz ənd"; // And conditions and
