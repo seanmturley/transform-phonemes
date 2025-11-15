@@ -264,16 +264,19 @@ describe("transliterateText", () => {
       expect(result).toBe("Tuw aask and tuw aanser, Te sijk and te fajnd");
     });
 
-    // it("into", () => {
-    //   const example = "Ənd kəndɪʃənz ənd"; // And conditions and
-    //   const result = transliterateText(example, map);
-    //   expect(result).toBe("And kendishenz and");
-    // });
+    it("into", () => {
+      const example = "Ɪntuː ɒdz ənd ɪntuː ɛndz, Ɪntuː ðɪs ənd ɪntuː ðæt"; // Into odds and into ends, Into this and into that
+      const result = transliterateText(example, map);
+      expect(result).toBe("Intuw odz and intuw éndz, Inte ðis and inte ðat");
+    });
 
-    // it("onto", () => {
-    //   const example = "Ənd kəndɪʃənz ənd"; // And conditions and
-    //   const result = transliterateText(example, map);
-    //   expect(result).toBe("And kendishenz and");
-    // });
+    it("onto", () => {
+      const example =
+        "Ɒntuː ə bʌs ənd ɒntuː ə siːt, Ɒntuː ðə bʌs ənd ɒntuː ðə siːt"; // Onto a bus and onto a seat, Onto the bus and onto the seat
+      const result = transliterateText(example, map);
+      expect(result).toBe(
+        "Ontuw e bás and ontuw e sijt, Onte ðe bás and onte ðe sijt"
+      );
+    });
   });
 });
