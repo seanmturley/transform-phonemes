@@ -2,11 +2,16 @@ export type TransliterationMapGroup = {
   [key: string]: string;
 };
 
-export type TransliterationMap = {
+export type PreProcessingMap = {
   exceptions?: TransliterationMapGroup;
   digraphs?: TransliterationMapGroup;
   trigraphs?: TransliterationMapGroup;
   monographs: TransliterationMapGroup;
+};
+
+export type TransliterationMap = {
+  pre: PreProcessingMap;
+  post?: TransliterationMapGroup;
 };
 
 type TransliterationTestDatum = {

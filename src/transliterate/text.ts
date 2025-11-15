@@ -1,4 +1,8 @@
-import type { TransliterationMap, TransliterationMapGroup } from "./types.ts";
+import type {
+  PreProcessingMap,
+  TransliterationMap,
+  TransliterationMapGroup
+} from "./types.ts";
 
 export default function transliterateText(
   text: string,
@@ -46,9 +50,9 @@ export default function transliterateText(
   const objectEntries = <T extends object>(obj: T) =>
     Object.entries(obj) as Entries<T>;
 
-  let group: keyof TransliterationMap;
-  for (group in map) {
-    const mapGroup = map[group] as TransliterationMapGroup;
+  let group: keyof PreProcessingMap;
+  for (group in map.pre) {
+    const mapGroup = map.pre[group] as TransliterationMapGroup;
 
     for (const [source, target] of objectEntries(mapGroup)) {
       transliterate(source, target);
@@ -59,5 +63,12 @@ export default function transliterateText(
     transliteration = transliteration.replaceAll(placeholderChar, target);
   }
 
+  if (map.post) {
+    for (const [pattern, target] of objectEntries(map.post)) {
+      const regex = new RegExp(pattern, "g");
+
+      transliteration = transliteration.replaceAll(regex, target);
+    }
+  }
   return transliteration;
 }
