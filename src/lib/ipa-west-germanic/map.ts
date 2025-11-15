@@ -1,8 +1,14 @@
 import ipaDigraphExceptions from "./ipa-digraph-exceptions.ts";
 import type { TransliterationMap } from "../../transliterate/types.ts";
-import { vowelOrEndOfClause, wordEnd, wordStart } from "../../utils/regex.ts";
+import {
+  consonant,
+  vowelOrEndOfClause,
+  wordEnd,
+  wordStart
+} from "../../utils/regex.ts";
 
 const vowels = "AÁEÉIOUaáeéiou";
+const consonants = "b-df-hj-np-tv-zðþB-DF-HJ-NP-TV-ZÐÞ";
 
 const map: TransliterationMap = {
   pre: {
@@ -133,7 +139,11 @@ const map: TransliterationMap = {
     [`${wordStart}ðe${vowelOrEndOfClause(vowels)}`]: "ðij",
     [`${wordStart}Ðe${vowelOrEndOfClause(vowels)}`]: "Ðij",
     [`${wordStart}te${vowelOrEndOfClause(vowels)}`]: "tuw",
-    [`${wordStart}Te${vowelOrEndOfClause(vowels)}`]: "Tuw"
+    [`${wordStart}Te${vowelOrEndOfClause(vowels)}`]: "Tuw",
+    [`${wordStart}intuw${consonant(consonants)}`]: "inte",
+    [`${wordStart}Intuw${consonant(consonants)}`]: "Inte",
+    [`${wordStart}ontuw${consonant(consonants)}`]: "onte",
+    [`${wordStart}Ontuw${consonant(consonants)}`]: "Onte"
   }
 };
 
