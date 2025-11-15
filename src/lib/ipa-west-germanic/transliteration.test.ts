@@ -248,4 +248,31 @@ describe("transliterateText", () => {
       expect(result).toBe("And kendishenz and");
     });
   });
+
+  describe("should, when not followed by a consonant, render stressed forms of the words", () => {
+    it("the", () => {
+      const example = "Ðə ʌgli ənd ðə ænɪməl, ðə bjuːti ənd ðə biːst";
+      // The ugly and the animal, the beauty and the beast
+      const result = transliterateText(example, map);
+      expect(result).toBe("Ðij áglij and ðij animel, ðe bjuwtij and ðe bijst");
+    });
+
+    // it("to", () => {
+    //   const example = "Ənd kəndɪʃənz ənd"; // And conditions and
+    //   const result = transliterateText(example, map);
+    //   expect(result).toBe("And kendishenz and");
+    // });
+
+    // it("into", () => {
+    //   const example = "Ənd kəndɪʃənz ənd"; // And conditions and
+    //   const result = transliterateText(example, map);
+    //   expect(result).toBe("And kendishenz and");
+    // });
+
+    // it("onto", () => {
+    //   const example = "Ənd kəndɪʃənz ənd"; // And conditions and
+    //   const result = transliterateText(example, map);
+    //   expect(result).toBe("And kendishenz and");
+    // });
+  });
 });
