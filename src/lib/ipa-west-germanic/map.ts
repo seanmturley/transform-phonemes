@@ -131,7 +131,9 @@ const map: TransliterationMap = {
     [`${wordStart}end${wordEnd}`]: "and",
     [`${wordStart}End${wordEnd}`]: "And",
     [`${wordStart}ðe${vowelOrEndOfClause(vowels)}`]: "ðij",
-    [`${wordStart}Ðe${vowelOrEndOfClause(vowels)}`]: "Ðij"
+    [`${wordStart}Ðe${vowelOrEndOfClause(vowels)}`]: "Ðij",
+    [`${wordStart}te${vowelOrEndOfClause(vowels)}`]: "tuw",
+    [`${wordStart}Te${vowelOrEndOfClause(vowels)}`]: "Tuw"
   }
 };
 
