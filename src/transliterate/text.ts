@@ -1,5 +1,7 @@
 import capitalizeFirstLetter from "../utils/capitalizeFirstLetter.ts";
+import postProcessing from "../utils/post-processing.ts";
 import type {
+  PostProcessingMap,
   PreProcessingMap,
   TransliterationMap,
   TransliterationMapGroup
@@ -61,10 +63,23 @@ export default function transliterateText(
   }
 
   if (map.post) {
-    for (const [pattern, target] of objectEntries(map.post)) {
-      const regex = new RegExp(pattern, "gu");
+    let process: keyof PostProcessingMap;
+    for (process in map.post) {
+      const processGroup = map.post[process] as TransliterationMapGroup;
 
-      transliteration = transliteration.replaceAll(regex, target);
+      for (const [pre, post] of objectEntries(processGroup)) {
+        const processing = postProcessing[process](
+          pre,
+          post,
+          map?.regexPatterns
+        );
+
+        processing.forEach(([pattern, post]: string[]) => {
+          const regex = new RegExp(pattern, "gu");
+
+          transliteration = transliteration.replaceAll(regex, post);
+        });
+      }
     }
   }
 

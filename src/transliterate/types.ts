@@ -9,9 +9,16 @@ export type PreProcessingMap = {
   monographs: TransliterationMapGroup;
 };
 
+export type PostProcessingMap = {
+  always?: TransliterationMapGroup;
+  beforeConsonants?: TransliterationMapGroup;
+  notBeforeConsonants?: TransliterationMapGroup;
+};
+
 export type TransliterationMap = {
   pre: PreProcessingMap;
-  post?: TransliterationMapGroup;
+  post?: PostProcessingMap;
+  regexPatterns?: TransliterationMapGroup;
 };
 
 type TransliterationTestDatum = {
