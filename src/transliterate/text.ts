@@ -1,3 +1,4 @@
+import capitalizeFirstLetter from "../utils/capitalizeFirstLetter.ts";
 import type {
   PreProcessingMap,
   TransliterationMap,
@@ -9,10 +10,6 @@ export default function transliterateText(
   map: TransliterationMap
 ) {
   let transliteration = text;
-
-  const capitalizeFirstLetter = (string: string) => {
-    return String(string).charAt(0).toUpperCase() + String(string).slice(1);
-  };
 
   const transliterate = (source: string, target: string) => {
     transliteration = transliteration.replaceAll(
