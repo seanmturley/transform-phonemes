@@ -1,4 +1,4 @@
-import capitalizeFirstLetter from "../utils/capitalizeFirstLetter.ts";
+import capitalizeFirstLetter from "../utils/capitalize-first-letter.ts";
 import postProcessing from "../utils/post-processing.ts";
 import type {
   PostProcessingMap,

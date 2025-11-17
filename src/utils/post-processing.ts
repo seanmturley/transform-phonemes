@@ -1,4 +1,4 @@
-import capitalizeFirstLetter from "./capitalizeFirstLetter.ts";
+import capitalizeFirstLetter from "./capitalize-first-letter.ts";
 import {
   followedByConsonant,
   followedByVowelOrEndOfClause,
