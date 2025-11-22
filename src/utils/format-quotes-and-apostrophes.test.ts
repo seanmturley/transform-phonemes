@@ -1,38 +1,63 @@
-import formatQuotesAndApostrophes from "./format-quotes-and-apostrophes.ts";
+import {
+  removeApostrophes,
+  standardizeQuotes
+} from "./format-quotes-and-apostrophes.ts";
 
-type QuotesAndApostrophesTestDatum = {
+type TestDatum = {
   description: string;
   input: string;
   output: string;
 };
 
-const quotesAndApostrophes: QuotesAndApostrophesTestDatum[] = [
+const quotes: TestDatum[] = [
   {
     description: "Straight double quotes primary with single quotes secondary",
-    input: `"Streɪt dʌbəl kwəʊts praɪməri wɪð 'sɪŋgəl kwəʊts' sɛkəndəri, ənd əpɒstrəfiz tə rɪmuːv: ''tɪz ðə bɔɪz' kæt's brʌʃ'."`,
-    output: `“Stréjt dábel kwowts prajmerij wið ‘singgel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘tiz ðe bojz kats brásh’.”`
+    input: `"Stréjt dábel kwowts prajmerij wið 'singgel kwowts' sékenderij, and epostrefijz te rimuwv: ''tiz ðe bojz' kat's brásh'."`,
+    output: `“Stréjt dábel kwowts prajmerij wið ‘singgel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘'tiz ðe bojz' kat's brásh’.”`
   },
   {
     description: "Straight single quotes primary with double quotes secondary",
-    input: `'Streɪt sɪŋgəl kwəʊts praɪməri wɪð "dʌbəl kwəʊts" sɛkəndəri, ənd əpɒstrəfiz tə rɪmuːv: "'tɪz ðə bɔɪz' kæt's brʌʃ".'`,
-    output: `“Stréjt singgel kwowts prajmerij wið ‘dábel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘tiz ðe bojz kats brásh’.”`
+    input: `'Stréjt singgel kwowts prajmerij wið "dábel kwowts" sékenderij, and epostrefijz te rimuwv: "'tiz ðe bojz' kat's brásh".'`,
+    output: `“Stréjt singgel kwowts prajmerij wið ‘dábel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘'tiz ðe bojz' kat's brásh’.”`
   },
   {
     description: "Curvy double quotes primary with single quotes secondary",
-    input: `“Kɜːrvi dʌbəl kwəʊts praɪməri wɪð ‘sɪŋgəl kwəʊts’ sɛkəndəri, ənd əpɒstrəfiz tə rɪmuːv: ‘’tɪz ðə bɔɪz’ kæt’s brʌʃ’.”`,
-    output: `“Keervij dábel kwowts prajmerij wið ‘singgel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘tiz ðe bojz kats brásh’.”`
+    input: `“Keervij dábel kwowts prajmerij wið ‘singgel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘’tiz ðe bojz’ kat’s brásh’.”`,
+    output: `“Keervij dábel kwowts prajmerij wið ‘singgel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘’tiz ðe bojz’ kat’s brásh’.”`
   },
   {
     description: "Curvy single quotes primary with double quotes secondary",
-    input: `‘Kɜːrvi sɪŋgəl kwəʊts praɪməri wɪð “dʌbəl kwəʊts” sɛkəndəri, ənd əpɒstrəfiz tə rɪmuːv: “’tɪz ðə bɔɪz’ kæt’s brʌʃ”.’`,
-    output: `“Kɜːrvi sɪŋgəl kwəʊts praɪməri wɪð ‘dʌbəl kwəʊts’ sɛkəndəri, ənd əpɒstrəfiz tə rɪmuːv: ‘tɪz ðə bɔɪz kæts brʌʃ’.”`
+    input: `‘Keervij singgel kwowts prajmerij wið “dábel kwowts” sékenderij, and epostrefijz te rimuwv: “’tiz ðe bojz’ kat’s brásh”.’`,
+    output: `“Keervij singgel kwowts prajmerij wið ‘dábel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘’tiz ðe bojz’ kat’s brásh’.”`
   }
 ];
 
-describe("Quotes should be standardized as curvy double quotes primary with single quotes secondary, and apostrphes should be removed", () => {
-  quotesAndApostrophes.forEach((testCase) => {
+const apostrophes: TestDatum[] = [
+  {
+    description: "Straight apostrophes",
+    input: `“Stréjt dábel kwowts prajmerij wið ‘singgel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘'tiz ðe bojz' kat's brásh’.”`,
+    output: `“Stréjt dábel kwowts prajmerij wið ‘singgel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘tiz ðe bojz kats brásh’.”`
+  },
+  {
+    description: "Curvy apostrophes",
+    input: `“Keervij singgel kwowts prajmerij wið ‘dábel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘’tiz ðe bojz’ kat’s brásh’.”`,
+    output: `“Keervij singgel kwowts prajmerij wið ‘dábel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘tiz ðe bojz kats brásh’.”`
+  }
+];
+
+describe("Quotes should be standardized as curvy double quotes primary with single quotes secondary", () => {
+  quotes.forEach((testCase) => {
     it(`${testCase.description}`, () => {
-      const result = formatQuotesAndApostrophes(testCase.input);
+      const result = standardizeQuotes(testCase.input);
+      expect(result).toBe(testCase.output);
+    });
+  });
+});
+
+describe("Apostrophes should be removed", () => {
+  apostrophes.forEach((testCase) => {
+    it(`${testCase.description}`, () => {
+      const result = removeApostrophes(testCase.input);
       expect(result).toBe(testCase.output);
     });
   });
