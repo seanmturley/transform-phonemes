@@ -1,5 +1,14 @@
-export function standardizeQuotes(input: string) {
-  return input;
+import {
+  doubleQuotePlaceholder,
+  doubleQuotes,
+  singleQuotePlaceholder,
+  singleQuotes
+} from "./regex.ts";
+
+export function replaceQuotesWithPlaceholders(input: string) {
+  return input
+    .replaceAll(doubleQuotes, doubleQuotePlaceholder)
+    .replaceAll(singleQuotes, singleQuotePlaceholder);
 }
 
 export function removeApostrophes(input: string) {
@@ -9,7 +18,7 @@ export function removeApostrophes(input: string) {
 export default function formatQuotesAndApostrophes(input: string) {
   let output = input;
 
-  output = standardizeQuotes(output);
+  output = replaceQuotesWithPlaceholders(output);
   output = removeApostrophes(output);
 
   return output;

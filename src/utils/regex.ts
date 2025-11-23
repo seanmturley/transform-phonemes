@@ -7,7 +7,16 @@ export const followedByVowelOrEndOfClause = (vowels: string) =>
 export const followedByConsonant = (consonants: string) =>
   `(?=\\s?[${consonants}])`;
 
-export const primaryQuotes =
-  /(?<=^|\p{L}\p{P}\s|—)['"‘“](.+?)(?:(?:(?<=(?:[\p{L}\d]\p{P}+))['"’”])|['"’”](—))/gmu;
+export const doubleQuotes = /["“”]/g;
+export const singleQuotes = /['‘’]/g;
 
-export const secondaryQuotes = /(?<!\p{L})(['"‘“])([^'"‘“]*?)['"’”](?!\p{L})/gu;
+export const doubleQuotePlaceholder = "\u{100000}";
+export const singleQuotePlaceholder = "\u{100001}";
+
+// Contruct the pattern to find outer quotes (replaced with
+// placeholder characters) i.e.:
+// /(?<!\p{L})(['"])((?:(?!\s\1|[,.?!—]\1).)*)[,.?!—]?\1(?!\p{L})/gu;
+export const outerQuotes = new RegExp(
+  String.raw`(?<!\p{L})([${doubleQuotePlaceholder}${singleQuotePlaceholder}])((?:(?!\s\1|[,.?!—]\1).)*)[,.?!—]?\1(?!\p{L})`,
+  "gu"
+);

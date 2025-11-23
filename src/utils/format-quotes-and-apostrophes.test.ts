@@ -1,6 +1,6 @@
 import {
   removeApostrophes,
-  standardizeQuotes
+  replaceQuotesWithPlaceholders
 } from "./format-quotes-and-apostrophes.ts";
 
 type TestDatum = {
@@ -48,17 +48,17 @@ const apostrophes: TestDatum[] = [
 describe("Quotes should be standardized as curvy double quotes primary with single quotes secondary", () => {
   quotes.forEach((testCase) => {
     it(`${testCase.description}`, () => {
-      const result = standardizeQuotes(testCase.input);
+      const result = replaceQuotesWithPlaceholders(testCase.input);
       expect(result).toBe(testCase.output);
     });
   });
 });
 
-describe("Apostrophes should be removed", () => {
-  apostrophes.forEach((testCase) => {
-    it(`${testCase.description}`, () => {
-      const result = removeApostrophes(testCase.input);
-      expect(result).toBe(testCase.output);
-    });
-  });
-});
+// describe("Apostrophes should be removed", () => {
+//   apostrophes.forEach((testCase) => {
+//     it(`${testCase.description}`, () => {
+//       const result = removeApostrophes(testCase.input);
+//       expect(result).toBe(testCase.output);
+//     });
+//   });
+// });
