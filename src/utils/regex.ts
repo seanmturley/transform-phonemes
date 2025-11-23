@@ -13,10 +13,17 @@ export const singleQuotes = /['‘’]/g;
 export const doubleQuotePlaceholder = "\u{100000}";
 export const singleQuotePlaceholder = "\u{100001}";
 
+const quotePlacholders = String.raw`[${doubleQuotePlaceholder}${singleQuotePlaceholder}]`;
+
+export const outerPlaceholders = new RegExp(
+  String.raw`^${quotePlacholders}(.*)${quotePlacholders}$`,
+  "gu"
+);
+
 // Contruct the pattern to find outer quotes (replaced with
 // placeholder characters) i.e.:
 // /(?<!\p{L})(['"])((?:(?!\s\1|[,.?!—]\1).)*)[,.?!—]?\1(?!\p{L})/gu;
 export const outerQuotes = new RegExp(
-  String.raw`(?<!\p{L})([${doubleQuotePlaceholder}${singleQuotePlaceholder}])((?:(?!\s\1|[,.?!—]\1).)*)[,.?!—]?\1(?!\p{L})`,
+  String.raw`(?<!\p{L})(${quotePlacholders})((?:(?!\s\1|[,.?!—]\1).)*)[,.?!—]?\1(?!\p{L})`,
   "gu"
 );
