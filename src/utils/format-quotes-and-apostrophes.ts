@@ -34,7 +34,7 @@ export function formatQuotes(input: string) {
 }
 
 export function removeApostrophes(input: string) {
-  return input;
+  return input.replaceAll(singleQuotePlaceholder, "");
 }
 
 export default function formatQuotesAndApostrophes(input: string) {

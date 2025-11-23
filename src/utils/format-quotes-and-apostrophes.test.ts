@@ -10,7 +10,7 @@ type TestDatum = {
   output: string;
 };
 
-const quotes: TestDatum[] = [
+const quoteStyles: TestDatum[] = [
   {
     description: "Straight double quotes primary with single quotes secondary",
     input: `"Stréjt dábel kwowts prajmerij wið 'singgel kwowts' sékenderij, and epostrefijz te rimuwv: ''tiz ðe bojz' kat's brásh'."`,
@@ -33,21 +33,8 @@ const quotes: TestDatum[] = [
   }
 ];
 
-const apostrophes: TestDatum[] = [
-  {
-    description: "Straight apostrophes",
-    input: `“Stréjt dábel kwowts prajmerij wið ‘singgel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘'tiz ðe bojz' kat's brásh’.”`,
-    output: `“Stréjt dábel kwowts prajmerij wið ‘singgel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘tiz ðe bojz kats brásh’.”`
-  },
-  {
-    description: "Curvy apostrophes",
-    input: `“Keervij singgel kwowts prajmerij wið ‘dábel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘’tiz ðe bojz’ kat’s brásh’.”`,
-    output: `“Keervij singgel kwowts prajmerij wið ‘dábel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘tiz ðe bojz kats brásh’.”`
-  }
-];
-
-describe("Quotes should be standardized as curvy double quotes primary with single quotes secondary", () => {
-  quotes.forEach((testCase) => {
+describe("formatQuotes should produce primary curvy double quotes and secondary curvy single quotes", () => {
+  quoteStyles.forEach((testCase) => {
     it(`${testCase.description}`, () => {
       const result = formatQuotes(testCase.input);
       expect(result).toBe(testCase.output);
@@ -55,11 +42,15 @@ describe("Quotes should be standardized as curvy double quotes primary with sing
   });
 });
 
-// describe("Apostrophes should be removed", () => {
-//   apostrophes.forEach((testCase) => {
-//     it(`${testCase.description}`, () => {
-//       const result = removeApostrophes(testCase.input);
-//       expect(result).toBe(testCase.output);
-//     });
-//   });
-// });
+const apostrophes: TestDatum = {
+  description: "Straight apostrophes",
+  input: `“Epostrefijz te rimuwv: ‘${singleQuotePlaceholder}tiz ðe bojz${singleQuotePlaceholder} kat${singleQuotePlaceholder}s brásh’.”`,
+  output: `“Epostrefijz te rimuwv: ‘tiz ðe bojz kats brásh’.”`
+};
+
+describe("removeApostrophes should", () => {
+  it("remove all singleQuotePlaceholders", () => {
+    const result = removeApostrophes(apostrophes.input);
+    expect(result).toBe(apostrophes.output);
+  });
+});
