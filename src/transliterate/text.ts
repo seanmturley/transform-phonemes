@@ -1,4 +1,5 @@
 import capitalizeFirstLetter from "../utils/capitalize-first-letter.ts";
+import formatQuotesAndApostrophes from "../utils/format-quotes-and-apostrophes.ts";
 import postProcessing from "../utils/post-processing.ts";
 import type {
   PostProcessingMap,
@@ -82,6 +83,8 @@ export default function transliterateText(
       }
     }
   }
+
+  transliteration = formatQuotesAndApostrophes(transliteration);
 
   return transliteration;
 }
