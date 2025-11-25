@@ -13,6 +13,10 @@ function replaceQuotesWithPlaceholders(input: string) {
     .replaceAll(singleQuotes, singleQuotePlaceholder);
 }
 
+function removeLeadingApostrophes(input: string) {
+  return input;
+}
+
 function formatPlaceholderQuotes(input: string) {
   const output = input.replaceAll(outerQuotes, (match) => {
     match = match.replaceAll(outerPlaceholders, "$1");
@@ -28,6 +32,7 @@ export function formatQuotes(input: string) {
   let output = input;
 
   output = replaceQuotesWithPlaceholders(output);
+  output = removeLeadingApostrophes(output);
   output = formatPlaceholderQuotes(output);
 
   return output;
