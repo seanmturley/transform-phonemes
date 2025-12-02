@@ -8,83 +8,83 @@ import type { TransliterationTestData } from "../../transliterate/types.ts";
 
 const phonemes: TransliterationTestData = {
   // plosives
-  p: { ipa: "pɪt", transliteration: "pit", word: "pit" },
-  b: { ipa: "bɪt", transliteration: "bit", word: "bit" },
-  t: { ipa: "tɪn", transliteration: "tin", word: "tin" },
-  d: { ipa: "dɪn", transliteration: "din", word: "din" },
-  k: { ipa: "kʌt", transliteration: "kát", word: "cut" },
-  ɡ: { ipa: "gʌt", transliteration: "gát", word: "gut" },
-  tʃ: { ipa: "tʃiːp", transliteration: "cijp", word: "cheap" },
-  dʒ: { ipa: "dʒiːp", transliteration: "dgijp", word: "jeep" },
+  p: { description: "pit", input: "pɪt", output: "pit" },
+  b: { description: "bit", input: "bɪt", output: "bit" },
+  t: { description: "tin", input: "tɪn", output: "tin" },
+  d: { description: "din", input: "dɪn", output: "din" },
+  k: { description: "cut", input: "kʌt", output: "kát" },
+  ɡ: { description: "gut", input: "gʌt", output: "gát" },
+  tʃ: { description: "cheap", input: "tʃiːp", output: "cijp" },
+  dʒ: { description: "jeep", input: "dʒiːp", output: "dgijp" },
 
   // fricatives
-  f: { ipa: "fæt", transliteration: "fat", word: "fat" },
-  v: { ipa: "væt", transliteration: "vat", word: "vat" },
-  θ: { ipa: "θaɪ", transliteration: "þaj", word: "thigh" },
-  ð: { ipa: "ðaɪ", transliteration: "ðaj", word: "thy" },
-  s: { ipa: "sæp", transliteration: "sap", word: "sap" },
-  z: { ipa: "zæp", transliteration: "zap", word: "zap" },
-  ʃ: { ipa: "ʃɪn", transliteration: "shin", word: "shin" },
-  ʒ: { ipa: "beɪʒ", transliteration: "béjzh", word: "beige" },
-  x: { ipa: "lɒx", transliteration: "loch", word: "loch" },
-  // ʍ: { ipa: "ʍɒt", transliteration: "whot", word: "what" }, // archaic
-  h: { ipa: "hæm", transliteration: "ham", word: "ham" },
+  f: { description: "fat", input: "fæt", output: "fat" },
+  v: { description: "vat", input: "væt", output: "vat" },
+  θ: { description: "thigh", input: "θaɪ", output: "þaj" },
+  ð: { description: "thy", input: "ðaɪ", output: "ðaj" },
+  s: { description: "sap", input: "sæp", output: "sap" },
+  z: { description: "zap", input: "zæp", output: "zap" },
+  ʃ: { description: "shin", input: "ʃɪn", output: "shin" },
+  ʒ: { description: "beige", input: "beɪʒ", output: "béjzh" },
+  x: { description: "loch", input: "lɒx", output: "loch" },
+  // ʍ: { description: "what", input: "ʍɒt", output: "whot" }, // archaic
+  h: { description: "ham", input: "hæm", output: "ham" },
 
   // nasals
-  m: { ipa: "rʌm", transliteration: "rám", word: "rum" },
-  n: { ipa: "rʌn", transliteration: "rán", word: "run" },
-  ŋ: { ipa: "rʌŋ", transliteration: "ráng", word: "rung" },
+  m: { description: "rum", input: "rʌm", output: "rám" },
+  n: { description: "run", input: "rʌn", output: "rán" },
+  ŋ: { description: "rung", input: "rʌŋ", output: "ráng" },
 
   // approximants
-  j: { ipa: "jɔːr", transliteration: "jor", word: "your" },
-  w: { ipa: "wɔːr", transliteration: "wor", word: "wore" },
-  r: { ipa: "rʌmp", transliteration: "rámp", word: "rump" },
-  l: { ipa: "lʌmp", transliteration: "lámp", word: "lump" },
+  j: { description: "your", input: "jɔːr", output: "jor" },
+  w: { description: "wore", input: "wɔːr", output: "wor" },
+  r: { description: "rump", input: "rʌmp", output: "rámp" },
+  l: { description: "lump", input: "lʌmp", output: "lámp" },
 
   // short vowels
-  ɪ: { ipa: "kɪt", transliteration: "kit", word: "kit" },
-  ɛ: { ipa: "drɛs", transliteration: "drés", word: "dress" },
-  ɒ: { ipa: "lɒt", transliteration: "lot", word: "lot" },
-  æ: { ipa: "træp", transliteration: "trap", word: "trap" },
-  ʊ: { ipa: "fʊt", transliteration: "fut", word: "foot" },
-  ə: { ipa: "kɒmə", transliteration: "kome", word: "comma" },
-  ʌ: { ipa: "strʌt", transliteration: "strát", word: "strut" },
+  ɪ: { description: "kit", input: "kɪt", output: "kit" },
+  ɛ: { description: "dress", input: "drɛs", output: "drés" },
+  ɒ: { description: "lot", input: "lɒt", output: "lot" },
+  æ: { description: "trap", input: "træp", output: "trap" },
+  ʊ: { description: "foot", input: "fʊt", output: "fut" },
+  ə: { description: "comma", input: "kɒmə", output: "kome" },
+  ʌ: { description: "strut", input: "strʌt", output: "strát" },
 
   // short vowels with -r
-  ɪr: { ipa: "spɪrɪt", transliteration: "spirrit", word: "spirit" },
-  ɛr: { ipa: "vɛri", transliteration: "vérrij", word: "very" },
-  ɒr: { ipa: "sɒri", transliteration: "sorrij", word: "sorry" },
-  ær: { ipa: "kæri", transliteration: "karrij", word: "carry" },
-  ʊr: { ipa: "kʊriər", transliteration: "kurrijer", word: "courier" },
-  ər: { ipa: "ʌðər", transliteration: "áðer", word: "other" },
-  ʌr: { ipa: "wʌri", transliteration: "wárij", word: "worry" },
+  ɪr: { description: "spirit", input: "spɪrɪt", output: "spirrit" },
+  ɛr: { description: "very", input: "vɛri", output: "vérrij" },
+  ɒr: { description: "sorry", input: "sɒri", output: "sorrij" },
+  ær: { description: "carry", input: "kæri", output: "karrij" },
+  ʊr: { description: "courier", input: "kʊriər", output: "kurrijer" },
+  ər: { description: "other", input: "ʌðər", output: "áðer" },
+  ʌr: { description: "worry", input: "wʌri", output: "wárij" },
 
   // long r-liaison vowels with -r
-  ɪər: { ipa: "nɪər", transliteration: "nir", word: "near" },
-  eər: { ipa: "skweər", transliteration: "skwér", word: "square" },
-  ɔːr: { ipa: "nɔːrθ", transliteration: "norþ", word: "north" },
-  ɑːr: { ipa: "stɑːrt", transliteration: "start", word: "start" },
-  ʊər: { ipa: "pjʊər", transliteration: "pjur", word: "pure" },
-  ɜːr: { ipa: "nɜːrs", transliteration: "neers", word: "nurse" },
+  ɪər: { description: "near", input: "nɪər", output: "nir" },
+  eər: { description: "square", input: "skweər", output: "skwér" },
+  ɔːr: { description: "north", input: "nɔːrθ", output: "norþ" },
+  ɑːr: { description: "start", input: "stɑːrt", output: "start" },
+  ʊər: { description: "pure", input: "pjʊər", output: "pjur" },
+  ɜːr: { description: "nurse", input: "nɜːrs", output: "neers" },
 
   // long r-liaison vowels without -r
-  ɪə: { ipa: "aɪdɪə", transliteration: "ajdii", word: "idea" },
-  // eə: { ipa: "skweər", transliteration: "skwér", word: "square" },
-  ɔː: { ipa: "ɔːl", transliteration: "ool", word: "all" },
-  ɑː: { ipa: "ɑːftər", transliteration: "aafter", word: "after" },
-  // ʊə: { ipa: "pjʊər", transliteration: "pjur", word: "pure" },
-  ɜː: { ipa: "fɜːn", transliteration: "feen", word: "foehn" },
+  ɪə: { description: "idea", input: "aɪdɪə", output: "ajdii" },
+  // eə: { description: "square", input: "skweər", output: "skwér" },
+  ɔː: { description: "all", input: "ɔːl", output: "ool" },
+  ɑː: { description: "after", input: "ɑːftər", output: "aafter" },
+  // ʊə: { description: "pure", input: "pjʊər", output: "pjur" },
+  ɜː: { description: "foehn", input: "fɜːn", output: "feen" },
 
   // j-diphthongs
-  iː: { ipa: "fliːs", transliteration: "flijs", word: "fleece" },
-  eɪ: { ipa: "feɪs", transliteration: "féjs", word: "face" },
-  ɔɪ: { ipa: "tʃɔɪs", transliteration: "cojs", word: "choice" },
-  aɪ: { ipa: "praɪs", transliteration: "prajs", word: "price" },
+  iː: { description: "fleece", input: "fliːs", output: "flijs" },
+  eɪ: { description: "face", input: "feɪs", output: "féjs" },
+  ɔɪ: { description: "choice", input: "tʃɔɪs", output: "cojs" },
+  aɪ: { description: "price", input: "praɪs", output: "prajs" },
 
   // w-diphthongs
-  əʊ: { ipa: "gəʊt", transliteration: "gowt", word: "goat" },
-  aʊ: { ipa: "maʊθ", transliteration: "mawþ", word: "mouth" },
-  uː: { ipa: "guːs", transliteration: "guws", word: "goose" }
+  əʊ: { description: "goat", input: "gəʊt", output: "gowt" },
+  aʊ: { description: "mouth", input: "maʊθ", output: "mawþ" },
+  uː: { description: "goose", input: "guːs", output: "guws" }
 };
 
 const capitalizedPhonemes: TransliterationTestData = {
@@ -92,91 +92,91 @@ const capitalizedPhonemes: TransliterationTestData = {
   // will not be capitalized in normal sentence or title case.
 
   // plosives
-  p: { ipa: "Pɪt", transliteration: "Pit", word: "Pit" },
-  b: { ipa: "Bɪt", transliteration: "Bit", word: "Bit" },
-  t: { ipa: "Tɪn", transliteration: "Tin", word: "Tin" },
-  d: { ipa: "Dɪn", transliteration: "Din", word: "Din" },
-  k: { ipa: "Kʌt", transliteration: "Kát", word: "Cut" },
-  ɡ: { ipa: "Gʌt", transliteration: "Gát", word: "Gut" },
-  tʃ: { ipa: "Tʃiːp", transliteration: "Cijp", word: "Cheap" },
-  dʒ: { ipa: "Dʒiːp", transliteration: "Dgijp", word: "Jeep" },
+  p: { description: "Pit", input: "Pɪt", output: "Pit" },
+  b: { description: "Bit", input: "Bɪt", output: "Bit" },
+  t: { description: "Tin", input: "Tɪn", output: "Tin" },
+  d: { description: "Din", input: "Dɪn", output: "Din" },
+  k: { description: "Cut", input: "Kʌt", output: "Kát" },
+  ɡ: { description: "Gut", input: "Gʌt", output: "Gát" },
+  tʃ: { description: "Cheap", input: "Tʃiːp", output: "Cijp" },
+  dʒ: { description: "Jeep", input: "Dʒiːp", output: "Dgijp" },
 
   // fricatives
-  f: { ipa: "Fæt", transliteration: "Fat", word: "Fat" },
-  v: { ipa: "Væt", transliteration: "Vat", word: "Vat" },
-  θ: { ipa: "Θaɪ", transliteration: "Þaj", word: "Thigh" },
-  ð: { ipa: "Ðaɪ", transliteration: "Ðaj", word: "Thy" },
-  s: { ipa: "Sæp", transliteration: "Sap", word: "Sap" },
-  z: { ipa: "Zæp", transliteration: "Zap", word: "Zap" },
-  ʃ: { ipa: "Ʃɪn", transliteration: "Shin", word: "Shin" },
-  ʒ: { ipa: "Ʒɒnrə", transliteration: "Zhonre", word: "Genre" },
-  // x: { ipa: "lɒx", transliteration: "loch", word: "loch" },
-  // ʍ: { ipa: "ʍɒt", transliteration: "whot", word: "what" }, // archaic
-  h: { ipa: "Hæm", transliteration: "Ham", word: "Ham" },
+  f: { description: "Fat", input: "Fæt", output: "Fat" },
+  v: { description: "Vat", input: "Væt", output: "Vat" },
+  θ: { description: "Thigh", input: "Θaɪ", output: "Þaj" },
+  ð: { description: "Thy", input: "Ðaɪ", output: "Ðaj" },
+  s: { description: "Sap", input: "Sæp", output: "Sap" },
+  z: { description: "Zap", input: "Zæp", output: "Zap" },
+  ʃ: { description: "Shin", input: "Ʃɪn", output: "Shin" },
+  ʒ: { description: "Genre", input: "Ʒɒnrə", output: "Zhonre" },
+  // x: { description: "loch", input: "lɒx", output: "loch" },
+  // ʍ: { description: "what", input: "ʍɒt", output: "whot" }, // archaic
+  h: { description: "Ham", input: "Hæm", output: "Ham" },
 
   // nasals
-  m: { ipa: "Mʌm", transliteration: "Mám", word: "Mum" },
-  n: { ipa: "Nʌn", transliteration: "Nán", word: "Nun" },
-  // ŋ: { ipa: "rʌŋ", transliteration: "ráng", word: "rung" },
+  m: { description: "Mum", input: "Mʌm", output: "Mám" },
+  n: { description: "Nun", input: "Nʌn", output: "Nán" },
+  // ŋ: { description: "rung", input: "rʌŋ", output: "ráng" },
 
   // approximants
-  j: { ipa: "Jɔːr", transliteration: "Jor", word: "Your" },
-  w: { ipa: "Wɔːr", transliteration: "Wor", word: "Wore" },
-  r: { ipa: "Rʌmp", transliteration: "Rámp", word: "Rump" },
-  l: { ipa: "Lʌmp", transliteration: "Lámp", word: "Lump" },
+  j: { description: "Your", input: "Jɔːr", output: "Jor" },
+  w: { description: "Wore", input: "Wɔːr", output: "Wor" },
+  r: { description: "Rump", input: "Rʌmp", output: "Rámp" },
+  l: { description: "Lump", input: "Lʌmp", output: "Lámp" },
 
   // short vowels
-  ɪ: { ipa: "Ɪt", transliteration: "It", word: "It" },
-  ɛ: { ipa: "Ɛdʒ", transliteration: "Édg", word: "Edge" },
-  ɒ: { ipa: "Ɒn", transliteration: "On", word: "On" },
-  æ: { ipa: "Æz", transliteration: "Az", word: "As" },
-  // ʊ: { ipa: "Uːps", transliteration: "Ups", word: "Oops" },
-  ə: { ipa: "Əbaʊt", transliteration: "Ebawt", word: "About" },
-  ʌ: { ipa: "Ʌs", transliteration: "Ás", word: "Us" },
+  ɪ: { description: "It", input: "Ɪt", output: "It" },
+  ɛ: { description: "Edge", input: "Ɛdʒ", output: "Édg" },
+  ɒ: { description: "On", input: "Ɒn", output: "On" },
+  æ: { description: "As", input: "Æz", output: "Az" },
+  // ʊ: { description: "Oops", input: "Uːps", output: "Ups" },
+  ə: { description: "About", input: "Əbaʊt", output: "Ebawt" },
+  ʌ: { description: "Us", input: "Ʌs", output: "Ás" },
 
   // short vowels with -r
-  ɪr: { ipa: "Ɪreɪz", transliteration: "Irréjz", word: "Erase" },
-  ɛr: { ipa: "Ɛrər", transliteration: "Érrer", word: "Error" },
-  ɒr: { ipa: "Ɒrɪndʒ", transliteration: "Orrindg", word: "Orange" },
-  ær: { ipa: "Ærəʊ", transliteration: "Arrow", word: "Arrow" },
-  // ʊr: { ipa: "kʊriər", transliteration: "kurrijer", word: "courier" },
-  ər: { ipa: "Əraʊnd", transliteration: "Erawnd", word: "Around" },
-  // ʌr: { ipa: "wʌri", transliteration: "wárij", word: "worry" },
+  ɪr: { description: "Erase", input: "Ɪreɪz", output: "Irréjz" },
+  ɛr: { description: "Error", input: "Ɛrər", output: "Érrer" },
+  ɒr: { description: "Orange", input: "Ɒrɪndʒ", output: "Orrindg" },
+  ær: { description: "Arrow", input: "Ærəʊ", output: "Arrow" },
+  // ʊr: { description: "courier", input: "kʊriər", output: "kurrijer" },
+  ər: { description: "Around", input: "Əraʊnd", output: "Erawnd" },
+  // ʌr: { description: "worry", input: "wʌri", output: "wárij" },
 
   // long r-liaison vowels with -r
-  ɪər: { ipa: "Ɪər", transliteration: "Ir", word: "Ear" },
-  eər: { ipa: "Eər", transliteration: "Ér", word: "Air" },
-  ɔːr: { ipa: "Ɔːr", transliteration: "Or", word: "Or" },
-  ɑːr: { ipa: "Ɑːr", transliteration: "Ar", word: "Are" },
-  // ʊər: { ipa: "pjʊər", transliteration: "pjur", word: "pure" },
-  ɜːr: { ipa: "Ɜːrθ", transliteration: "Eerþ", word: "Earth" },
+  ɪər: { description: "Ear", input: "Ɪər", output: "Ir" },
+  eər: { description: "Air", input: "Eər", output: "Ér" },
+  ɔːr: { description: "Or", input: "Ɔːr", output: "Or" },
+  ɑːr: { description: "Are", input: "Ɑːr", output: "Ar" },
+  // ʊər: { description: "pure", input: "pjʊər", output: "pjur" },
+  ɜːr: { description: "Earth", input: "Ɜːrθ", output: "Eerþ" },
 
   // long r-liaison vowels without -r
-  // ɪə: { ipa: "aɪdɪə", transliteration: "ajdii", word: "idea" },
-  // eə: { ipa: "skweər", transliteration: "skwér", word: "square" },
-  ɔː: { ipa: "Ɔːl", transliteration: "Ool", word: "All" },
-  ɑː: { ipa: "Ɑːftər", transliteration: "Aafter", word: "After" },
-  // ʊə: { ipa: "pjʊər", transliteration: "pjur", word: "pure" },
-  // ɜː: { ipa: "fɜːn", transliteration: "feen", word: "foehn" },
+  // ɪə: { description: "idea", input: "aɪdɪə", output: "ajdii" },
+  // eə: { description: "square", input: "skweər", output: "skwér" },
+  ɔː: { description: "All", input: "Ɔːl", output: "Ool" },
+  ɑː: { description: "After", input: "Ɑːftər", output: "Aafter" },
+  // ʊə: { description: "pure", input: "pjʊər", output: "pjur" },
+  // ɜː: { description: "foehn", input: "fɜːn", output: "feen" },
 
   // j-diphthongs
-  iː: { ipa: "Iːst", transliteration: "Ijst", word: "East" },
-  eɪ: { ipa: "Eɪt", transliteration: "Éjt", word: "Eight" },
-  ɔɪ: { ipa: "Ɔɪl", transliteration: "Ojl", word: "Oil" },
-  aɪ: { ipa: "Aɪs", transliteration: "Ajs", word: "Ice" },
+  iː: { description: "East", input: "Iːst", output: "Ijst" },
+  eɪ: { description: "Eight", input: "Eɪt", output: "Éjt" },
+  ɔɪ: { description: "Oil", input: "Ɔɪl", output: "Ojl" },
+  aɪ: { description: "Ice", input: "Aɪs", output: "Ajs" },
 
   // w-diphthongs
-  əʊ: { ipa: "Əʊld", transliteration: "Owld", word: "Old" },
-  aʊ: { ipa: "Aʊt", transliteration: "Awt", word: "Out" },
-  uː: { ipa: "Uːz", transliteration: "Uwz", word: "Ooze" }
+  əʊ: { description: "Old", input: "Əʊld", output: "Owld" },
+  aʊ: { description: "Out", input: "Aʊt", output: "Awt" },
+  uː: { description: "Ooze", input: "Uːz", output: "Uwz" }
 };
 
 const westGermanicConsonantDigraphs: TransliterationTestData = {
-  dg: { ipa: "mʌdgɑːrd", transliteration: "mád-gard", word: "mudgaurd" },
-  sh: { ipa: "haʊshəʊld", transliteration: "haws-howld", word: "household" },
-  zh: { ipa: "ræmzhɔːrn", transliteration: "ramz-horn", word: "ramshorn" },
-  tʃh: { ipa: "hɪtʃhaɪkər", transliteration: "hic-hajker", word: "hitchhiker" },
-  ng: { ipa: "ɒngəʊɪŋ", transliteration: "on-gowing", word: "ongoing" }
+  dg: { description: "mudgaurd", input: "mʌdgɑːrd", output: "mád-gard" },
+  sh: { description: "household", input: "haʊshəʊld", output: "haws-howld" },
+  zh: { description: "ramshorn", input: "ræmzhɔːrn", output: "ramz-horn" },
+  tʃh: { description: "hitchhiker", input: "hɪtʃhaɪkər", output: "hic-hajker" },
+  ng: { description: "ongoing", input: "ɒngəʊɪŋ", output: "on-gowing" }
 };
 
 describe("transliterateText", () => {
@@ -184,9 +184,9 @@ describe("transliterateText", () => {
     describe("transliterate all phonemes", () => {
       for (const [key, value] of Object.entries(phonemes)) {
         it(`${key}`, () => {
-          const result = transliterateText(value.ipa, map);
+          const result = transliterateText(value.input, map);
 
-          expect(result).toBe(value.transliteration);
+          expect(result).toBe(value.output);
         });
       }
     });
@@ -194,9 +194,9 @@ describe("transliterateText", () => {
     describe("transliterate all capitalized phonemes", () => {
       for (const [key, value] of Object.entries(capitalizedPhonemes)) {
         it(`${key}`, () => {
-          const result = transliterateText(value.ipa, map);
+          const result = transliterateText(value.input, map);
 
-          expect(result).toBe(value.transliteration);
+          expect(result).toBe(value.output);
         });
       }
     });
@@ -228,9 +228,9 @@ describe("transliterateText", () => {
   describe("should hyphenate ambiguous West Germanic consonant pairs", () => {
     for (const [key, value] of Object.entries(westGermanicConsonantDigraphs)) {
       it(`${key}`, () => {
-        const result = transliterateText(value.ipa, map);
+        const result = transliterateText(value.input, map);
 
-        expect(result).toBe(value.transliteration);
+        expect(result).toBe(value.output);
       });
     }
   });

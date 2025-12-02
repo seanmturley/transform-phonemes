@@ -21,12 +21,12 @@ export type TransliterationMap = {
   regexPatterns?: TransliterationMapGroup;
 };
 
-type TransliterationTestDatum = {
-  ipa: string;
-  transliteration: string;
-  word: string;
+export type TestDatum = {
+  description: string;
+  input: string;
+  output: string;
 };
 
 export type TransliterationTestData = {
-  [key: string]: TransliterationTestDatum;
+  [key: string]: TestDatum;
 };

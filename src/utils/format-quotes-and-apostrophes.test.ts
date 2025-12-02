@@ -3,12 +3,7 @@ import {
   removeApostrophes
 } from "./format-quotes-and-apostrophes.ts";
 import { singleQuotePlaceholder } from "./regex.ts";
-
-type TestDatum = {
-  description: string;
-  input: string;
-  output: string;
-};
+import type { TestDatum } from "../transliterate/types.ts";
 
 const quoteStyles: TestDatum[] = [
   {
