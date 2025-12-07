@@ -2,6 +2,7 @@ import capitalizeFirstLetter from "./capitalize-first-letter.ts";
 import {
   followedByConsonant,
   followedByVowelOrEndOfClause,
+  singleQuotes,
   wordEnd,
   wordStart
 } from "./regex.ts";
@@ -57,6 +58,16 @@ function notBeforeConsonants(
   ];
 }
 
+function afterApostrophe(pre: string, post: string) {
+  const capitalizedPre = capitalizeFirstLetter(pre);
+  const capitalizedPost = capitalizeFirstLetter(post);
+
+  return [
+    [`${wordStart}${singleQuotes}${pre}${wordEnd}`, post],
+    [`${wordStart}${capitalizedPre}${wordEnd}`, capitalizedPost]
+  ];
+}
+
 type PostProcessing = {
   [key: string]: Function;
 };
@@ -64,7 +75,8 @@ type PostProcessing = {
 const postProcessing: PostProcessing = {
   [always.name]: always,
   [beforeConsonants.name]: beforeConsonants,
-  [notBeforeConsonants.name]: notBeforeConsonants
+  [notBeforeConsonants.name]: notBeforeConsonants,
+  [afterApostrophe.name]: afterApostrophe
 };
 
 export default postProcessing;
