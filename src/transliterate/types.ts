@@ -13,6 +13,7 @@ export type PostProcessingMap = {
   always?: TransliterationMapGroup;
   beforeConsonants?: TransliterationMapGroup;
   notBeforeConsonants?: TransliterationMapGroup;
+  afterApostrophe?: TransliterationMapGroup;
 };
 
 export type TransliterationMap = {

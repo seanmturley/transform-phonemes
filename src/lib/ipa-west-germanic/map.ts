@@ -1,4 +1,5 @@
 import ipaDigraphExceptions from "./ipa-digraph-exceptions.ts";
+import ipaLeadingApostrophes from "./ipa-leading-apostrophes.ts";
 import type { TransliterationMap } from "../../transliterate/types.ts";
 
 const map: TransliterationMap = {
@@ -125,7 +126,10 @@ const map: TransliterationMap = {
   post: {
     always: { ev: "ov", end: "and" },
     beforeConsonants: { intuw: "inte", ontuw: "onte" },
-    notBeforeConsonants: { ðe: "ðij", te: "tuw" }
+    notBeforeConsonants: { ðe: "ðij", te: "tuw" },
+    afterApostrophe: {
+      ...ipaLeadingApostrophes
+    }
   },
   regexPatterns: {
     vowels: "AÁEÉIOUaáeéiou",
