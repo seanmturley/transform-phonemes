@@ -279,4 +279,13 @@ describe("transliterateText", () => {
       );
     });
   });
+
+  describe("should process contractions to", () => {
+    it("remove leading apostrophes", () => {
+      const example = "'Tɪz 'kɔːz ɪt's 'geɪnst 'əm";
+      // 'Tis 'cause it's 'gainst 'em
+      const result = transliterateText(example, map);
+      expect(result).toBe("Tiz kooz its géjnst em");
+    });
+  });
 });
