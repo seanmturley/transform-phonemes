@@ -288,4 +288,13 @@ describe("transliterateText", () => {
       expect(result).toBe("Tiz kooz its géjnst em");
     });
   });
+
+  describe("should format quotes correctly", () => {
+    it("even when leading apostrophes are present", () => {
+      const example = `"'Tɪz 'kɔːz ɪt's ''geɪnst' 'əm."`;
+      // 'Tis 'cause it's 'gainst 'em
+      const result = transliterateText(example, map);
+      expect(result).toBe(`“Tiz kooz its ‘géjnst’ em.”`);
+    });
+  });
 });
