@@ -6,24 +6,26 @@ import { singleQuotePlaceholder } from "./regex.ts";
 import type { TestDatum } from "../transliterate/types.ts";
 
 const quoteStyles: TestDatum[] = [
+  // Note that the apostrophe before "tiz" should have already been
+  // removed by the afterApostrophe post processing
   {
     description: "Straight double quotes primary with single quotes secondary",
-    input: `"Stréjt dábel kwowts prajmerij wið 'singgel kwowts' sékenderij, and epostrefijz te rimuwv: ''tiz ðe bojz' kat's brásh'."`,
+    input: `"Stréjt dábel kwowts prajmerij wið 'singgel kwowts' sékenderij, and epostrefijz te rimuwv: 'tiz ðe bojz' kat's brásh'."`,
     output: `“Stréjt dábel kwowts prajmerij wið ‘singgel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘tiz ðe bojz${singleQuotePlaceholder} kat${singleQuotePlaceholder}s brásh’.”`
   },
   {
     description: "Straight single quotes primary with double quotes secondary",
-    input: `'Stréjt singgel kwowts prajmerij wið "dábel kwowts" sékenderij, and epostrefijz te rimuwv: "'tiz ðe bojz' kat's brásh".'`,
+    input: `'Stréjt singgel kwowts prajmerij wið "dábel kwowts" sékenderij, and epostrefijz te rimuwv: "tiz ðe bojz' kat's brásh".'`,
     output: `“Stréjt singgel kwowts prajmerij wið ‘dábel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘tiz ðe bojz${singleQuotePlaceholder} kat${singleQuotePlaceholder}s brásh’.”`
   },
   {
     description: "Curvy double quotes primary with single quotes secondary",
-    input: `“Keervij dábel kwowts prajmerij wið ‘singgel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘’tiz ðe bojz’ kat’s brásh’.”`,
+    input: `“Keervij dábel kwowts prajmerij wið ‘singgel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘tiz ðe bojz’ kat’s brásh’.”`,
     output: `“Keervij dábel kwowts prajmerij wið ‘singgel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘tiz ðe bojz${singleQuotePlaceholder} kat${singleQuotePlaceholder}s brásh’.”`
   },
   {
     description: "Curvy single quotes primary with double quotes secondary",
-    input: `‘Keervij singgel kwowts prajmerij wið “dábel kwowts” sékenderij, and epostrefijz te rimuwv: “’tiz ðe bojz’ kat’s brásh”.’`,
+    input: `‘Keervij singgel kwowts prajmerij wið “dábel kwowts” sékenderij, and epostrefijz te rimuwv: “tiz ðe bojz’ kat’s brásh”.’`,
     output: `“Keervij singgel kwowts prajmerij wið ‘dábel kwowts’ sékenderij, and epostrefijz te rimuwv: ‘tiz ðe bojz${singleQuotePlaceholder} kat${singleQuotePlaceholder}s brásh’.”`
   }
 ];
