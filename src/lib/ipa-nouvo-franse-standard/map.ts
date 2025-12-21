@@ -70,10 +70,10 @@ const map: TransliterationMap = {
       // nasal
       // It's currently unclear how to handle nasal vowels given their
       // variable spelling in the current orthographic system
-      ɛ̃: "in", // im, èn, èm
-      œ̃: "un", // um
-      ɔ̃: "òn", // òm
-      ɑ̃: "an" // am, en, em
+      ɛ̃: "en", // em, ę
+      œ̃: "un", // um, ų
+      ɔ̃: "on", // om, ǫ
+      ɑ̃: "an" // am, ą
     }
   }
   // post: {
